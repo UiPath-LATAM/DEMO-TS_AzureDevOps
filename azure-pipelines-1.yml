@@ -1,0 +1,17 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+#trigger:
+#- main
+
+pool:
+  name: Default
+
+steps:
+- task: PowerShell@2
+  inputs:
+    filePath: '$(Build.SourcesDirectory)\Data\Workflow-Analyzer-CLI-Script'
+    arguments: '-ProjectFilePath $(Build.SourcesDirectory)\project.json -ExecutableFilePath "C:\''Program Files''\UiPath\Studio\UiPath.Studio.CommandLine.exe" -OutputFilePath $(Pipeline.Workspace)\drop\Workflow-Analysis.json'
+    workingDirectory: '$(Build.SourcesDirectory)'
