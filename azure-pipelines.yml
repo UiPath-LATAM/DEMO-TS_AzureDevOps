@@ -21,9 +21,9 @@ steps:
 #       certutil -addstore -enterprise -f -v root $(DownloadSecureFile.SecureFilePath)
 - task: PowerShell@2
   inputs:
-    filePath: '\Data\Workflow-Analyzer-CLI-Script.ps1'
-    arguments: '-ProjectFilePath project.json -ExecutableFilePath "C:\''Program Files''\UiPath\Studio\UiPath.Studio.CommandLine.exe" -OutputFilePath Workflow-Analysis.json'
-    #workingDirectory: '$(Build.SourcesDirectory)'
+    filePath: '$(System.DefaultWorkingDirectory)/Data/Workflow-Analyzer-CLI-Script.ps1'
+    arguments: '-ProjectFilePath $(System.DefaultWorkingDirectory)/project.json -ExecutableFilePath "C:\''Program Files''\UiPath\Studio\UiPath.Studio.CommandLine.exe" -OutputFilePath $(System.DefaultWorkingDirectory)/Workflow-Analysis.json'
+    workingDirectory: '$(System.DefaultWorkingDirectory)'
 #- task: UiPathTest@2
 #  inputs:
 #    testTarget: 'TestProject'
