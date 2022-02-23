@@ -1,11 +1,11 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="GetNegativeBallanceAcounts" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uj="clr-namespace:UiPathTeam.JSONUtilities;assembly=UiPathTeam.JSONUtilities.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="GetNegativeBallanceAcounts" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="OUT_outputFile" Type="OutArgument(x:String)" />
   </x:Members>
-  <mva:VisualBasic.Settings>
+  <VisualBasic.Settings>
     <x:Null />
-  </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1675,2669</sap:VirtualizedContainerService.HintSize>
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1675,2761</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetNegativeBallanceAcounts_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="48">
@@ -36,10 +36,15 @@
       <x:String>UiPathTeam.JSONUtilities</x:String>
       <x:String>System.Collections.ObjectModel</x:String>
       <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Dynamic</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Collections.Specialized</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="34">
+    <sco:Collection x:TypeArguments="AssemblyReference">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -65,10 +70,27 @@
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.Memory</AssemblyReference>
       <AssemblyReference>NPOI</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
-    </scg:List>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>netstandard</AssemblyReference>
+    </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="GetNegativeBallanceAcounts" sap:VirtualizedContainerService.HintSize="554,2604" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="GetNegativeBallanceAcounts" sap:VirtualizedContainerService.HintSize="554,2696" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="baseUrl" />
       <Variable x:TypeArguments="x:Int32" Name="statusCode" />
@@ -79,6 +101,12 @@
       <Variable x:TypeArguments="njl:JObject" Name="loginObj" />
       <Variable x:TypeArguments="x:String" Name="filter" />
       <Variable x:TypeArguments="sd:DataTable" Name="accountsDt" />
+      <Variable x:TypeArguments="x:String" Name="pathCSV">
+        <Variable.Default>
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + &quot;\_WFOLDER\POC-DEMOS\DEMO_TS_AzureDevOps\Output\accounts2.csv&quot;" />
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="njl:JArray" Name="accountsObj" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -151,12 +179,9 @@
         <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
       </ui:HttpClient.UrlSegments>
     </ui:HttpClient>
-    <If Condition="[statusCode = 200]" sap:VirtualizedContainerService.HintSize="512,1661" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[statusCode = 200]" sap:VirtualizedContainerService.HintSize="512,1753" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="476,1474" sap2010:WorkflowViewState.IdRef="Sequence_2">
-          <Sequence.Variables>
-            <Variable x:TypeArguments="njl:JArray" Name="accountsObj" />
-          </Sequence.Variables>
+        <Sequence sap:VirtualizedContainerService.HintSize="476,1566" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -164,12 +189,21 @@
           </sap:WorkflowViewStateService.ViewState>
           <ui:DeserializeJson x:TypeArguments="njl:JArray" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_4" JsonObject="[accountsObj]" JsonString="[result]" />
           <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="434,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;Status: &quot; + statusCode.ToString + Environment.NewLine + &quot;Accounts: &quot; +accountsObj.ToString]" />
-          <uj:ConvertJSONToCSV DisplayName="Convert JSON to CSV" sap:VirtualizedContainerService.HintSize="434,22" sap2010:WorkflowViewState.IdRef="ConvertJSONToCSV_1" InputJSON="[result]" OutputCSVFilePath="[Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + &quot;\_WFOLDER\POC-DEMOS\DEMO_TS_AzureDevOps\Output\accounts2.csv&quot;]" />
-          <ui:ReadCsvFile DataTable="[accountsDt]" Delimitator="Comma" DisplayName="Read CSV" FilePath="[Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + &quot;\_WFOLDER\POC-DEMOS\DEMO_TS_AzureDevOps\Output\accounts2.csv&quot;]" sap:VirtualizedContainerService.HintSize="434,152" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="csv-json.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="x:String" x:Key="inCSVFile">
+                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="pathCSV" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="inSstrJson">
+                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="result" />
+              </InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+          <ui:ReadCsvFile DataTable="[accountsDt]" Delimitator="Comma" DisplayName="Read CSV" FilePath="[Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + &quot;\_WFOLDER\POC-DEMOS\DEMO_TS_AzureDevOps\Output\accounts2.csv&quot;]" sap:VirtualizedContainerService.HintSize="434,153" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
           <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="userId" DataTable="[accountsDt]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="434,185" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_1" />
           <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="id" DataTable="[accountsDt]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="434,185" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_2" />
           <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="email" DataTable="[accountsDt]" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="434,185" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_1" />
-          <ui:WriteCsvFile AddHeaders="True" DataTable="[accountsDt]" Delimitator="Comma" DisplayName="Write CSV" FilePath="[Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + &quot;\_WFOLDER\POC-DEMOS\DEMO_TS_AzureDevOps\Output\negativeAccounts2.csv&quot;]" sap:VirtualizedContainerService.HintSize="434,152" sap2010:WorkflowViewState.IdRef="WriteCsvFile_1" ShouldQuote="True" />
+          <ui:WriteCsvFile AddHeaders="True" DataTable="[accountsDt]" Delimitator="Comma" DisplayName="Write CSV" FilePath="[Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + &quot;\_WFOLDER\POC-DEMOS\DEMO_TS_AzureDevOps\Output\negativeAccounts2.csv&quot;]" sap:VirtualizedContainerService.HintSize="434,153" sap2010:WorkflowViewState.IdRef="WriteCsvFile_1" ShouldQuote="True" />
           <Assign sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="Assign_4">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[OUT_outputFile]</OutArgument>

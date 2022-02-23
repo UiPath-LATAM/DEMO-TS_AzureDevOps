@@ -3,10 +3,13 @@
   "description": "Blank Process",
   "main": "Main.xaml",
   "dependencies": {
-    "UiPath.Excel.Activities": "[2.11.4]",
-    "UiPath.Mail.Activities": "[1.12.3]",
-    "UiPath.System.Activities": "[21.10.4]",
-    "UiPath.UIAutomation.Activities": "[21.10.5]"
+    "UiPath.Credentials.Activities": "[2.0.0]",
+    "UiPath.Excel.Activities": "[2.12.1-preview]",
+    "UiPath.Mail.Activities": "[1.14.0-preview]",
+    "UiPath.System.Activities": "[21.12.0-preview]",
+    "UiPath.Testing.Activities": "[1.4.6]",
+    "UiPath.UIAutomation.Activities": "[21.12.0-preview]",
+    "UiPath.WebAPI.Activities": "[1.9.3-preview]"
   },
   "webServices": [],
   "entitiesStores": [],
@@ -39,7 +42,38 @@
     "processOptions": {
       "ignoredFiles": []
     },
-    "fileInfoCollection": [],
+    "fileInfoCollection": [
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "5e91d062-f289-4719-ad20-24c5e16aef91",
+        "fileName": "TestCases\\Environment\\Login\\LoginOK.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "8d22717d-9a6a-4fca-a9af-d9f1bb5cc39c",
+        "fileName": "TestCases\\Environment\\APITokenCheck.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "304b96a7-13a0-4b48-90c4-a2b2ee9231b8",
+        "fileName": "TestCases\\Environment\\AssestsCheck.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "f8cce963-3947-4824-b153-e88e9d6fa284",
+        "fileName": "TestCases\\Environment\\EndPointCheck.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "8a2fddbf-6b58-4e02-901e-ddbaaf1ad5e8",
+        "fileName": "TestCases\\NegativeAccountsProcess\\VerifyNegativeAccountsApis.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "6c1f7ec2-904d-4e22-975b-76a605c53157",
+        "fileName": "TestCases\\NegativeAccountsProcess\\VerifyNegativeAccountsUI.xaml"
+      }
+    ],
     "modernBehavior": true
   },
   "expressionLanguage": "VisualBasic",
