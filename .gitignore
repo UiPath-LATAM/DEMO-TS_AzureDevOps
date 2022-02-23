@@ -1,18 +1,11 @@
-# Build and Release Folders
-bin-debug/
-bin-release/
-[Oo]bj/
-[Bb]in/
+# Pastas do projeto UiPath Studio
+.local/
 
-# Other files and folders
-.settings/
+# Arquivos de Video
+*.mp4
 
-# Executables
-*.swf
-*.air
-*.ipa
-*.apk
+# Arquivos do MACOS para armazenar atributos da pasta corrente
+.DS_Store
 
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
+# logfiles(padrão que uso)
+*.log
