@@ -22,7 +22,7 @@ steps:
 - task: PowerShell@2
   inputs:
     filePath: '$(Build.SourcesDirectory)\Data\Workflow-Analyzer-CLI-Script.ps1'
-    arguments: '-ProjectFilePath $(Build.SourcesDirectory)\project.json -OutputFilePath $(Build.SourcesDirectory)'
+    arguments: '-ProjectFilePath $(Build.SourcesDirectory)\project.json -OutputFilePath $(Pipeline.Workspace)'
     workingDirectory: '$(Build.SourcesDirectory)'
 #- task: UiPathTest@2
 #  inputs:
