@@ -2,13 +2,20 @@
 
 param (
     $ProjectFilePath=".\project.json",
-    $ExecutableFilePath="C:\'Program Files'\UiPath\Studio\UiPath.Studio.CommandLine.exe",
     $OutputFilePath=".\$(Get-Date -Format 'yyyy-MM-dd-HH-mm-ss')-Workflow-Analysis.json"
     )
 
-Write-Output "$(Get-Date -Format 'HH:mm:ss') - STARTED - Workflow Analyzer CLI Script"
 
-$Command = "$ExecutableFilePath analyze -p $ProjectFilePath"
+$ExecutableFilePath="\Program Files\UiPath\Studio\"
+cd $ExecutableFilePath
+
+Write-Output "$(Get-Date -Format 'HH:mm:ss') - STARTED - Workflow Analyzer CLI Script"
+#Write-Output "$ProjectFilePath"
+#Write-OutPut "$OutputFilePath"
+
+$Command = ".\UiPath.Studio.CommandLine.exe analyze -p $ProjectFilePath"
+$OutputFilePath = "$OutputFilePath$(Get-Date -Format 'yyyy-MM-dd-HH-mm-ss')-Workflow-Analysis.json" 
+
 Invoke-Expression $Command | Out-File -FilePath $OutputFilePath
 
 Write-Output "$(Get-Date -Format 'HH:mm:ss') - COMPLETED - Workflow Analyzer CLI Script"
