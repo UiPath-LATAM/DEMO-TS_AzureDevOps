@@ -6,7 +6,7 @@ param (
     )
 
 $OutputFilePath = "$OutputFilePath\$(Get-Date -Format 'yyyy-MM-dd-HH-mm-ss')-Workflow-Analysis.json" 
-New-Item $OutputFilePath 
+#New-Item $OutputFilePath 
 
 $ExecutableFilePath="\Program Files\UiPath\Studio\"
 cd $ExecutableFilePath

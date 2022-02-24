@@ -1,6 +1,6 @@
 {
   "name": "DEMO-TS_AzureDevOps",
-  "description": "Blank Process",
+  "description": "A demo project to show our testing capabilities integrated with AzureDevOps",
   "main": "Main.xaml",
   "dependencies": {
     "UiPath.Credentials.Activities": "[2.0.0]",
