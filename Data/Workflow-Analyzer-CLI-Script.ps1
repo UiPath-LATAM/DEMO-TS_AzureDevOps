@@ -11,7 +11,7 @@ cd $ExecutableFilePath
 
 Write-Output "$(Get-Date -Format 'HH:mm:ss') - STARTED - Workflow Analyzer CLI Script"
 #Write-Output "$ProjectFilePath"
-#Write-OutPut "$OutputFilePath"
+Write-OutPut "$OutputFilePath"
 
 $Command = ".\UiPath.Studio.CommandLine.exe analyze -p $ProjectFilePath"
 $OutputFilePath = "$OutputFilePath\$(Get-Date -Format 'yyyy-MM-dd-HH-mm-ss')-Workflow-Analysis.json" 
