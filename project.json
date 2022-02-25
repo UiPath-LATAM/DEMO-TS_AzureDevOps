@@ -45,42 +45,42 @@
     "fileInfoCollection": [
       {
         "editingStatus": "Publishable",
-        "testCaseId": "5e91d062-f289-4719-ad20-24c5e16aef91",
-        "fileName": "TestCases\\Environment\\Login\\LoginOK.xaml"
-      },
-      {
-        "editingStatus": "Publishable",
-        "testCaseId": "8d22717d-9a6a-4fca-a9af-d9f1bb5cc39c",
-        "fileName": "TestCases\\Environment\\APITokenCheck.xaml"
-      },
-      {
-        "editingStatus": "Publishable",
-        "testCaseId": "304b96a7-13a0-4b48-90c4-a2b2ee9231b8",
-        "fileName": "TestCases\\Environment\\AssestsCheck.xaml"
-      },
-      {
-        "editingStatus": "Publishable",
-        "testCaseId": "f8cce963-3947-4824-b153-e88e9d6fa284",
-        "fileName": "TestCases\\Environment\\EndPointCheck.xaml"
-      },
-      {
-        "editingStatus": "Publishable",
-        "testCaseId": "8a2fddbf-6b58-4e02-901e-ddbaaf1ad5e8",
+        "testCaseId": "d2f59719-fe7a-4929-bfa1-9371dd65476d",
         "fileName": "TestCases\\NegativeAccountsProcess\\VerifyNegativeAccountsApis.xaml"
       },
       {
         "editingStatus": "InProgress",
-        "testCaseId": "6c1f7ec2-904d-4e22-975b-76a605c53157",
+        "testCaseId": "a098ed05-db77-4e94-b459-5107e3223d80",
         "fileName": "TestCases\\NegativeAccountsProcess\\VerifyNegativeAccountsUI.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "8aa16107-f3d1-4e4e-b16f-c52f3db916a9",
+        "fileName": "TestCases\\Environment\\Login\\LoginOK.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "faa9d69d-4c29-49d0-9adc-823396bbd39f",
+        "fileName": "TestCases\\Environment\\APITokenCheck.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "49dbad13-d36d-40f4-908c-95705ff8de9f",
+        "fileName": "TestCases\\Environment\\AssestsCheck.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "b381ae90-3d93-4283-933a-a88df10c465e",
+        "fileName": "TestCases\\Environment\\EndPointCheck.xaml"
       }
     ],
-    "modernBehavior": true
+    "modernBehavior": false
   },
   "expressionLanguage": "VisualBasic",
   "entryPoints": [
     {
       "filePath": "Main.xaml",
-      "uniqueId": "deb59894-4eae-41f1-a46f-10ba5616227a",
+      "uniqueId": "5ba8e164-a997-4085-a4fa-3762a0e1db79",
       "input": [],
       "output": []
     }
@@ -88,5 +88,5 @@
   "isTemplate": false,
   "templateProjectData": {},
   "publishData": {},
-  "targetFramework": "Windows"
+  "targetFramework": "Legacy"
 }
