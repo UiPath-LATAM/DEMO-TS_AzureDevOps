@@ -1,10 +1,10 @@
 <# Run UiPath Studio's Workflow Analyzer via command line and pipe results to file #>
 
 param (
-     [Parameter(Mandatory)]
+     [Parameter()]
      [string]$ProjectFilePath,
 
-     [Parameter(Mandatory)]
+     [Parameter()]
      [string]$OutputFilePath
     )
 
