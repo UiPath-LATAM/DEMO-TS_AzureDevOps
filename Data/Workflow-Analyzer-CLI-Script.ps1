@@ -1,11 +1,8 @@
 <# Run UiPath Studio's Workflow Analyzer via command line and pipe results to file #>
 
 param (
-     [Parameter()]
-     [string]$ProjectFilePath,
-
-     [Parameter()]
-     [string]$OutputFilePath
+     $ProjectFilePath,
+     $OutputFilePath
     )
 
 $OutputLog = "$OutputFilePath\$(Get-Date -Format 'yyyy-MM-dd-HH-mm-ss')-Workflow-AnalysysStage.log"
