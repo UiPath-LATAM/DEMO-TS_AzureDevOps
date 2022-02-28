@@ -8,6 +8,7 @@ param (
      [string]$OutputFilePath
     )
 
+mkdir $OutputFilePath
 $OutputLog = "$OutputFilePath\$(Get-Date -Format 'yyyy-MM-dd-HH-mm-ss')-Workflow-AnalysysStage.log"
 New-Item $OutputLog
 $OutputFilePath = "$OutputFilePath\$(Get-Date -Format 'yyyy-MM-dd-HH-mm-ss')-Workflow-Analysis.json"
