@@ -24,7 +24,7 @@ steps:
   displayName: 'Workflow Analyzer'
   inputs:
     filePath: '$(Build.SourcesDirectory)\Data\Workflow-Analyzer-CLI-Script.ps1'
-    arguments: '-ProjectFilePath $(Build.SourcesDirectory)\project.json -OutputFilePath $(Build.ArtifactStagingDirectory)\Output'
+    arguments: '-ProjectFilePath $(Build.SourcesDirectory)\project.json -OutputFilePath $(Build.SourcesDirectory)\Data\Output'
     workingDirectory: '$(Build.SourcesDirectory)'
 
 - task: UiPathTest@2
