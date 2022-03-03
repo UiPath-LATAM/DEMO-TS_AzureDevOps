@@ -27,25 +27,25 @@ steps:
     arguments: '-ProjectFilePath $(Build.SourcesDirectory)\project.json -OutputFilePath $(Build.SourcesDirectory)\Data\Output'
     workingDirectory: '$(Build.SourcesDirectory)'
 
-- task: UiPathTest@2
-  displayName: 'Testing'
-  inputs:
-    testTarget: 'TestProject'
-    orchestratorConnection: 'azDevOps'
-    folderName: 'Shared'
+# - task: UiPathTest@2
+#   displayName: 'Testing'
+#   inputs:
+#     testTarget: 'TestProject'
+#     orchestratorConnection: 'azDevOps'
+#     folderName: 'Shared'
 
-- task: UiPathPack@2
-  displayName: 'Packing'
-  inputs:
-    versionType: 'AutoVersion'
-    projectJsonPath: '$(Build.SourcesDirectory)'
-    orchestratorConnection: 'azDevOps'
-    outputPath: '$(Build.ArtifactStagingDirectory)\Output'
+# - task: UiPathPack@2
+#   displayName: 'Packing'
+#   inputs:
+#     versionType: 'AutoVersion'
+#     projectJsonPath: '$(Build.SourcesDirectory)'
+#     orchestratorConnection: 'azDevOps'
+#     outputPath: '$(Build.ArtifactStagingDirectory)\Output'
 
-- task: UiPathDeploy@2
-  displayName: 'Deployment'
-  inputs:
-    orchestratorConnection: 'azDevOps'
-    packagesPath: '$(Build.ArtifactStagingDirectory)\Output'
-    folderName: 'Shared'
-    entryPoints: 'Main.xaml'
+# - task: UiPathDeploy@2
+#   displayName: 'Deployment'
+#   inputs:
+#     orchestratorConnection: 'azDevOps'
+#     packagesPath: '$(Build.ArtifactStagingDirectory)\Output'
+#     folderName: 'Shared'
+#     entryPoints: 'Main.xaml'
