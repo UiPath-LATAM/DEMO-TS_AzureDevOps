@@ -20,12 +20,12 @@ steps:
 #       echo Importando certificado do OC
 #       certutil -addstore -enterprise -f -v root $(DownloadSecureFile.SecureFilePath)
 
-# - task: PowerShell@2
-#   displayName: 'Workflow Analyzer'
-#   inputs:
-#     filePath: '$(Build.SourcesDirectory)\Data\Workflow-Analyzer-CLI-Script.ps1'
-#     arguments: '-ProjectFilePath $(Build.SourcesDirectory)\project.json -OutputFilePath $(Build.SourcesDirectory)\Data\Output'
-#     workingDirectory: '$(Build.SourcesDirectory)'
+- task: PowerShell@2
+  displayName: 'Workflow Analyzer'
+  inputs:
+    filePath: '$(Build.SourcesDirectory)\Data\Workflow-Analyzer-CLI-Script.ps1'
+    arguments: '-ProjectFilePath $(Build.SourcesDirectory)\project.json -OutputFilePath $(Build.SourcesDirectory)\Data\Output'
+    workingDirectory: '$(Build.SourcesDirectory)'
 
 # - task: UiPathTest@2
 #   displayName: 'Testing'
@@ -50,15 +50,8 @@ steps:
 #     folderName: 'Shared'
 #     entryPoints: 'Main.xaml'
 
-- task: GitHubRelease@1
+- task: PublishBuildArtifacts@1
   inputs:
-    gitHubConnection: 'UiPath-LATAM-DEMO-TS_AzureDevOps'
-    repositoryName: 'UiPath-LATAM/DEMO-TS_AzureDevOps'
-    action: 'create'
-    target: '$(Build.SourceVersion)'
-    tagSource: 'gitTag'
-    title: 'AzureDevOps'
-    releaseNotesSource: 'inline'
-    releaseNotesInline: 'Azure DevOps Test'
-    changeLogCompareToRelease: 'lastFullRelease'
-    changeLogType: 'commitBased'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
