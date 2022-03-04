@@ -57,5 +57,8 @@ steps:
     action: 'create'
     target: '$(Build.SourceVersion)'
     tagSource: 'gitTag'
+    title: 'AzureDevOps'
+    releaseNotesSource: 'inline'
+    releaseNotesInline: 'Azure DevOps Test'
     changeLogCompareToRelease: 'lastFullRelease'
     changeLogType: 'commitBased'
