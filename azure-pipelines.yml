@@ -34,13 +34,13 @@ steps:
 #     orchestratorConnection: 'azDevOps'
 #     folderName: 'Shared'
 
-# - task: UiPathPack@2
-#   displayName: 'Packing'
-#   inputs:
-#     versionType: 'AutoVersion'
-#     projectJsonPath: '$(Build.SourcesDirectory)'
-#     orchestratorConnection: 'azDevOps'
-#     outputPath: '$(Build.ArtifactStagingDirectory)\Output'
+- task: UiPathPack@2
+  displayName: 'Packing'
+  inputs:
+    versionType: 'AutoVersion'
+    projectJsonPath: '$(Build.SourcesDirectory)'
+    orchestratorConnection: 'azDevOps'
+    outputPath: '$(Build.ArtifactStagingDirectory)\Output'
 
 # - task: UiPathDeploy@2
 #   displayName: 'Deployment'
@@ -52,6 +52,6 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)\Output'
     ArtifactName: 'drop'
     publishLocation: 'Container'
