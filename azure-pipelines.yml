@@ -49,3 +49,13 @@ steps:
 #     packagesPath: '$(Build.ArtifactStagingDirectory)\Output'
 #     folderName: 'Shared'
 #     entryPoints: 'Main.xaml'
+
+- task: GitHubRelease@1
+  inputs:
+    gitHubConnection: 'UiPath-LATAM-DEMO-TS_AzureDevOps'
+    repositoryName: 'UiPath-LATAM/DEMO-TS_AzureDevOps'
+    action: 'create'
+    target: '$(Build.SourceVersion)'
+    tagSource: 'gitTag'
+    changeLogCompareToRelease: 'lastFullRelease'
+    changeLogType: 'commitBased'
