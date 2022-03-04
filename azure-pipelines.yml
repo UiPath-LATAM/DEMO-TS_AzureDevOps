@@ -40,18 +40,18 @@ steps:
     versionType: 'AutoVersion'
     projectJsonPath: '$(Build.SourcesDirectory)'
     orchestratorConnection: 'azDevOps'
-    outputPath: '$(Build.ArtifactStagingDirectory)\Output'
+    outputPath: '$(Build.ArtifactStagingDirectory)'
 
-# - task: UiPathDeploy@2
-#   displayName: 'Deployment'
-#   inputs:
-#     orchestratorConnection: 'azDevOps'
-#     packagesPath: '$(Build.ArtifactStagingDirectory)\Output'
-#     folderName: 'Shared'
-#     entryPoints: 'Main.xaml'
+- task: UiPathDeploy@2
+  displayName: 'Deployment'
+  inputs:
+    orchestratorConnection: 'azDevOps'
+    packagesPath: '$(Build.ArtifactStagingDirectory)'
+    folderName: 'Shared'
+    entryPoints: 'Main.xaml'
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)\Output'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
