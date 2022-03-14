@@ -41,6 +41,7 @@ steps:
     projectJsonPath: '$(Build.SourcesDirectory)'
     orchestratorConnection: 'azDevOps'
     outputPath: '$(Build.ArtifactStagingDirectory)'
+    runWorkflowAnalysis: true
 
 - task: UiPathDeploy@2
   displayName: 'Deployment'
